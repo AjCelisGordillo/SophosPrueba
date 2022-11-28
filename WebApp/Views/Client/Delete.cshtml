@@ -1,0 +1,66 @@
+﻿@model WebApp.Models.Client
+
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-dark pl-3">Eliminar Cliente</h2>
+        </div>
+        <div class="row mt-4">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="DocumentId"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="DocumentId" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="LastName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="LastName" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Telephone"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Telephone" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-danger w-100" value="Eliminar" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; Volver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    <script>
+
+
+
+    </script>
+}

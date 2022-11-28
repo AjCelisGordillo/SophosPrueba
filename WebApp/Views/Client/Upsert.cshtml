@@ -1,0 +1,118 @@
+﻿@model WebApp.Models.ViewModels.ClientVM
+
+@{
+    var title = "Crear Cliente";
+}
+
+<form method="post">
+    @if (Model.Client.Id != 0)
+    {
+        title = "Editar Cliente";
+        <input asp-for="Client.Id" hidden />
+    }
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-dark pl-3">@title</h2>
+        </div>
+        <div class="row mt-4">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.DocumentId"></label>
+                    </div>
+                    <div class="col-8">
+                        @if (Model.Client.Id == 0)
+                        {
+                            <input asp-for="Client.DocumentId" value="" class="form-control documentId" />
+                        }
+                        else
+                        {
+                            <input asp-for="Client.DocumentId" class="form-control documentId" />
+                        }
+                        <span asp-validation-for="Client.DocumentId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Client.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Client.Name" class="form-control" />
+                        <span asp-validation-for="Client.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Client.LastName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Client.LastName" class="form-control" />
+                        <span asp-validation-for="Client.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Client.Telephone"></label>
+                    </div>
+                    <div class="col-8">
+                        @if (Model.Client.Id == 0)
+                        {
+                            <input asp-for="Client.Telephone" value="" class="form-control phoneInput" />
+                        }
+                        else
+                        {
+                            <input asp-for="Client.Telephone" class="form-control phoneInput" />
+                        }
+                        <span asp-validation-for="Client.Telephone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            @if (Model.Client.Id != 0)
+                            {
+                                <input type="submit" class="btn btn-primary w-100" value="Actualizar" />
+                            }
+                            else
+                            {
+                                <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Crear" />
+                            }
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; Volver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+                @if (Model.Client.Id != 0)
+                {
+                    <img src="" width="100%" style="border-radius: 5px; border:1px solid #bbb;" />
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire(
+                    'Error!',
+                    'Please upload an Image!',
+                    'error'
+                )
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

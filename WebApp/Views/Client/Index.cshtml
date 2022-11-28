@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApp.Models.Client>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">Lista de clientes</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <a class="btn btn-primary align-self-center" asp-action="Upsert"><i class="fa-solid fa-plus"></i> &nbsp; Crear nuevo cliente</a>
+        </div>
+    </div>
+
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Cédula</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="20%">@obj.DocumentId</td>
+                        <td width="20%">@obj.Name</td>
+                        <td width="20%">@obj.LastName</td>
+                        <td width="20%">@obj.Telephone</td>
+                        <td class="text-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-route-Id="@obj.Id" asp-action="Upsert" class="btn btn-primary mx-2"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a asp-route-Id="@obj.Id" asp-action="Delete" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> No existen clientes.</p>
+    }
+</div>

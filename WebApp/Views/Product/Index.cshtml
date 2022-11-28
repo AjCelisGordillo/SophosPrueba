@@ -1,0 +1,48 @@
+﻿@using System.Globalization
+@model IEnumerable<WebApp.Models.Product>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">Lista de productos</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <a class="btn btn-primary align-self-center" asp-action="Upsert"><i class="fa-solid fa-plus"></i> &nbsp; Crear nuevo producto</a>
+        </div>
+    </div>
+
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Valor Unitario</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td width="50%">@obj.Name</td>
+                        <td width="20%">$@obj.Price.ToString("N0", new CultureInfo("es-CL"))</td>
+                        <td class="text-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-route-Id="@obj.ProductId" asp-action="Upsert" class="btn btn-primary mx-2"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a asp-route-Id="@obj.ProductId" asp-action="Delete" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> No existen productos.</p>
+    }
+</div>

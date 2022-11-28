@@ -1,0 +1,76 @@
+﻿@using System.Globalization
+@model WebApp.Models.ViewModels.SaleVM
+
+<form method="post" asp-action="Delete" >
+    <input asp-for="SaleId" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-dark pl-3">Eliminar Venta</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label>Producto</label>
+                    </div>
+                    <div class="col-8">
+                        <input disabled asp-for="Product.Name" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Quantity"></label>
+                    </div>
+                    <div class="col-8">
+                        <input disabled="" asp-for="Quantity" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="PricePerUnit"></label>
+                    </div>
+                    <div class="col-8">
+                        <input disabled="" value="$@Model.PricePerUnit.ToString("N0")" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Total"></label>
+                    </div>
+                    <div class="col-8">
+                        <input disabled="" value="$@Model.Total.ToString("N0")" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label>Cliente</label>
+                    </div>
+                    <div class="col-8">
+                        <input disabled="" value="@Model.Client.Name @Model.Client.LastName" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-danger w-100" value="Eliminar Venta" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fa-solid fa-right-from-bracket"></i> Volver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

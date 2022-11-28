@@ -1,0 +1,93 @@
+﻿@model WebApp.Models.ViewModels.ProductVM
+
+@{
+    var title = "Crear Producto";
+}
+
+<form method="post">
+    @if (Model.Product.ProductId != 0)
+    {
+        title = "Editar Producto";
+        <input asp-for="Product.ProductId" hidden />
+    }
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-dark pl-3">@title</h2>
+        </div>
+        <div class="row mt-4">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Product.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Product.Name" class="form-control" />
+                        <span asp-validation-for="Product.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mt-3">
+                    <div class="col-4">
+                        <label asp-for="Product.Price"></label>
+                    </div>
+                    <div class="col-8">
+                        @if (Model.Product.ProductId == 0)
+                        {
+                            <input asp-for="Product.Price" value="" class="form-control unitPriceInput" />
+                        }
+                        else
+                        {
+                            <input asp-for="Product.Price" class="form-control unitPriceInput" />
+                        }
+                        <span asp-validation-for="Product.Price" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            @if (Model.Product.ProductId != 0)
+                            {
+                                <input type="submit" class="btn btn-primary w-100" value="Actualizar" />
+                            }
+                            else
+                            {
+                                <input type="submit" onclick="return validateInput()" class="btn btn-primary w-100" value="Crear" />
+                            }
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; Volver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+                @if (Model.Product.ProductId != 0)
+                {
+                    <img src="" width="100%" style="border-radius: 5px; border:1px solid #bbb;" />
+                }
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire(
+                    'Error!',
+                    'Please upload an Image!',
+                    'error'
+                )
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

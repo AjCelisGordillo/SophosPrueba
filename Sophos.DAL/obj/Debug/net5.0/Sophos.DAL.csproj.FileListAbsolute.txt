@@ -1,0 +1,12 @@
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\bin\Debug\net5.0\Sophos.DAL.deps.json
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\bin\Debug\net5.0\Sophos.DAL.dll
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\bin\Debug\net5.0\ref\Sophos.DAL.dll
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\bin\Debug\net5.0\Sophos.DAL.pdb
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\Sophos.DAL.csproj.AssemblyReference.cache
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\Sophos.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\Sophos.DAL.AssemblyInfoInputs.cache
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\Sophos.DAL.AssemblyInfo.cs
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\Sophos.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\Sophos.DAL.dll
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\ref\Sophos.DAL.dll
+C:\Users\Nelly\source\repos\SophosPrueba\Sophos.DAL\obj\Debug\net5.0\Sophos.DAL.pdb
